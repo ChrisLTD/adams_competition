@@ -1,4 +1,6 @@
 AdamsCompetition::Application.routes.draw do
+  resources :settings
+
   resources :pages
 
   devise_for :users
