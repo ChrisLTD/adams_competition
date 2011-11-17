@@ -9,6 +9,15 @@ class PagesController < ApplicationController
       format.json { render json: @pages }
     end
   end
+  
+  def home
+    @page = Page.find(1)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @page }
+    end
+  end
 
   # GET /pages/1
   # GET /pages/1.json
