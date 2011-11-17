@@ -9,6 +9,8 @@ gem 'sqlite3', '1.3.4'
 
 gem 'devise', '1.5.0'
 
+gem 'carrierwave', '0.5.8'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
