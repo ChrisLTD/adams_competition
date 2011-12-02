@@ -1,4 +1,6 @@
 AdamsCompetition::Application.routes.draw do
+  resources :profiles
+
   resources :settings
 
   resources :pages
