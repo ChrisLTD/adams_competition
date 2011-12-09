@@ -13,6 +13,8 @@ AdamsCompetition::Application.routes.draw do
 	
 	match 'redirect' => 'profiles#redirect'
 	
+	match 'sorry' => 'pages#show', :id => 2, :as => 'permission_error'
+	
 	root :to => 'pages#home'
 
   # The priority is based upon order of creation:

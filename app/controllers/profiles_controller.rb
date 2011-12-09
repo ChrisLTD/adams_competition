@@ -1,12 +1,20 @@
 class ProfilesController < ApplicationController
 
+	# Redirect to users profile edit page
 	def redirect
-    @user = current_user.id
-		@profile_id = Profile.first
+    @user = current_user
+		@profile = Profile.find_by_user_id(current_user.id)
 		
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+		test = 0;
+		if @profile.id == Profile.find_by_user_id(current_user.id).id
+			@test = 'yes'
+		end
+		
+		redirect_to :action => 'edit', :id => @profile.id
+		 
+#     respond_to do |format|
+#       format.html # index.html.erb
+#     end
   end
 
   # GET /profiles
@@ -44,7 +52,10 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @profile = Profile.find(params[:id])
+  	@profile = Profile.find(params[:id])
+  	if @profile.id != Profile.find_by_user_id(current_user.id).id
+    	redirect_to :permission_error
+    end
   end
 
   # POST /profiles
