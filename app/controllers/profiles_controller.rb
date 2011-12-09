@@ -14,6 +14,8 @@ class ProfilesController < ApplicationController
   	if @profile.id != Profile.find_by_user_id(current_user.id).id
     	redirect_to :permission_error
     end
+    
+    @notice = params[:notice]
   end
 
   # PUT /profiles/1
@@ -28,7 +30,7 @@ class ProfilesController < ApplicationController
 		
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { render action: 'edit', notice: 'Profile was successfully updated' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
