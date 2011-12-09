@@ -9,6 +9,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
   	@profile = Profile.find(params[:id])
+  	
+  	# Check to see if this user matches the profile, if not don't let them do anything
   	if @profile.id != Profile.find_by_user_id(current_user.id).id
     	redirect_to :permission_error
     end
@@ -18,7 +20,12 @@ class ProfilesController < ApplicationController
   # PUT /profiles/1.json
   def update
     @profile = Profile.find(params[:id])
-
+		
+		# Check to see if this user matches the profile, if not don't let them do anything
+		if @profile.id != Profile.find_by_user_id(current_user.id).id
+    	redirect_to :permission_error
+    end
+		
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
