@@ -8,8 +8,10 @@ AdamsCompetition::Application.routes.draw do
   devise_for :users
   
   namespace :user do
-    root :to => redirect("/users/edit")
+    root :to => 'profiles#redirect'
 	end
+	
+	match 'redirect' => 'profiles#redirect'
 	
 	root :to => 'pages#home'
 

@@ -1,4 +1,14 @@
 class ProfilesController < ApplicationController
+
+	def redirect
+    @user = current_user.id
+		@profile_id = Profile.first
+		
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
   # GET /profiles
   # GET /profiles.json
   def index
