@@ -4,6 +4,8 @@ AdamsCompetition::Application.routes.draw do
   resources :settings
 
   resources :pages
+  
+  match 'page/:slug' => 'pages#show_slug'
 
   devise_for :users
   

@@ -23,11 +23,17 @@ class PagesController < ApplicationController
   
   def show_slug
     @page = Page.find_by_slug(params[:slug])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @page }
-    end
+		
+    if @page 
+			respond_to do |format|
+				format.html # show.html.erb
+				format.json { render json: @page }
+			end
+		else
+			respond_to do |format|
+				format.html { render :file => "#{Rails.root}/public/404.html", :status => :not_found }
+			end
+		end
   end
 
   # GET /pages/new
