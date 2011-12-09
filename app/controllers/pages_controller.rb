@@ -10,19 +10,19 @@ class PagesController < ApplicationController
     end
   end
   
-  def home
-    @page = Page.find(1)
+  # GET /pages/1
+  # GET /pages/1.json
+  def show
+    @page = Page.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @page }
     end
   end
-
-  # GET /pages/1
-  # GET /pages/1.json
-  def show
-    @page = Page.find(params[:id])
+  
+  def show_slug
+    @page = Page.find_by_slug(params[:slug])
 
     respond_to do |format|
       format.html # show.html.erb
