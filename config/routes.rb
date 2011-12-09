@@ -1,5 +1,5 @@
 AdamsCompetition::Application.routes.draw do
-  resources :profiles
+  resources :profiles, :except => [:index, :destroy, :show, :new]
 
   resources :settings
 

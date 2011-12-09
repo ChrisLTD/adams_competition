@@ -2,52 +2,8 @@ class ProfilesController < ApplicationController
 
 	# Redirect to users profile edit page
 	def redirect
-    @user = current_user
 		@profile = Profile.find_by_user_id(current_user.id)
-		
-		test = 0;
-		if @profile.id == Profile.find_by_user_id(current_user.id).id
-			@test = 'yes'
-		end
-		
 		redirect_to :action => 'edit', :id => @profile.id
-		 
-#     respond_to do |format|
-#       format.html # index.html.erb
-#     end
-  end
-
-  # GET /profiles
-  # GET /profiles.json
-  def index
-    @profiles = Profile.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @profiles }
-    end
-  end
-
-  # GET /profiles/1
-  # GET /profiles/1.json
-  def show
-    @profile = Profile.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @profile }
-    end
-  end
-
-  # GET /profiles/new
-  # GET /profiles/new.json
-  def new
-    @profile = Profile.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @profile }
-    end
   end
 
   # GET /profiles/1/edit
@@ -55,22 +11,6 @@ class ProfilesController < ApplicationController
   	@profile = Profile.find(params[:id])
   	if @profile.id != Profile.find_by_user_id(current_user.id).id
     	redirect_to :permission_error
-    end
-  end
-
-  # POST /profiles
-  # POST /profiles.json
-  def create
-    @profile = Profile.new(params[:profile])
-
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render json: @profile, status: :created, location: @profile }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
     end
   end
 
@@ -90,15 +30,4 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1
-  # DELETE /profiles/1.json
-  def destroy
-    @profile = Profile.find(params[:id])
-    @profile.destroy
-
-    respond_to do |format|
-      format.html { redirect_to profiles_url }
-      format.json { head :ok }
-    end
-  end
 end
