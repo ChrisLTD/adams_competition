@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 	# Redirect to users profile edit page
 	def redirect
 		@profile = Profile.find_by_user_id(current_user.id)
-		redirect_to :action => 'edit', :id => @profile.id, :controller => "/profiles", notice: 'You are successfully logged in'
+		redirect_to :action => 'edit', :id => @profile.id, :controller => "/profiles"
   end
 
   # GET /profiles/1/edit
@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
   	@profile = Profile.find(params[:id])
   	
   	# Check to see if this user matches the profile, if not don't let them do anything
-  	if @profile.id != Profile.find_by_user_id(current_user.id).id
+  	if @profile.id != Profile.find_by_user_id(current_user.id).id and !current_user.try(:admin?)
     	redirect_to :permission_error
     end
     

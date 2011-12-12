@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AdamsCompetition</title>
-  <%= stylesheet_link_tag    "application" %>
+  <title>Adams Competition</title>
+  <%= stylesheet_link_tag    "reset" %>
+  <%= stylesheet_link_tag    "animate-custom" %>
+  <%= stylesheet_link_tag    "default" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
-
-<% if user_signed_in? %>
-
-	<%= link_to 'Show', @profile %> |
-	
-	<%= link_to 'Back', profiles_path %>
-
-	<%= link_to('Edit registration', edit_user_registration_path) %>
-
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-
-<% else %>
-
-	<%= link_to "Sign up", new_user_registration_path %>
-	
-	<%= link_to "Sign in", new_user_session_path %>
+<% if notice %>
+	<p class="notice"><%= notice %></p>
 <% end %>
+
+<% if alert %>
+	<p class="alert"><%= alert %></p>
+<% end %>
+
+<%= render :partial => "shared/top_links" %>
+
+<div class="container box">
+	<div class="top_border"></div>
+		<%= yield %>
+	<div class="bottom_border"></div>
+</div>
+
+<%= render :partial => "shared/bottom_links" %>
+
 
 
 </body>

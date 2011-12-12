@@ -1,0 +1,10 @@
+
+	<div class="container">
+		<% if !user_signed_in? %>
+			<% if !@is_login_page %>
+				<%= link_to "Login", new_user_session_path, :class => "button" %>	
+			<% end %>
+		<% else %>
+			<%= link_to "Home", root_url, :class => "button" %>	
+		<% end %>
+	</div>

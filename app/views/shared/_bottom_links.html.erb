@@ -1,0 +1,17 @@
+
+<div class="container">
+	<% if user_signed_in? %>
+		<%= link_to "Read Rules", "http://www.rubyonrails.org/", :class => "button"  %>
+		<% if !@is_edit_profile_page %>
+			<%= link_to 'Edit Profile', profile_edit_path, :class => "button"  %>
+		<% end %>
+		<% if !@is_user_edit_page %>
+			<%= link_to 'Change Password', edit_user_registration_path, :class => "button"  %>
+		<% end %>
+		<%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "button" %>        
+	<% else %>
+		<% if !@is_sign_up_page %>
+			<%= link_to "Sign up", new_user_registration_path, :class => "button yellow" %>
+		<% end %>
+	<% end %>
+</div>
