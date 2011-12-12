@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 	# Redirect to users profile edit page
 	def redirect
 		@profile = Profile.find_by_user_id(current_user.id)
-		redirect_to :action => 'edit', :id => @profile.id, :controller => "/profiles"
+		redirect_to :action => 'edit', :id => @profile.id, :controller => "/profiles", notice: 'You are successfully logged in'
   end
 
   # GET /profiles/1/edit
