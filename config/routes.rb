@@ -13,6 +13,8 @@ AdamsCompetition::Application.routes.draw do
     root :to => 'profiles#redirect'
 	end
 	
+	match 'admin/users/' => 'admin#user_list', :as => 'user_list'
+	
 	match 'redirect' => 'profiles#redirect', :as => 'profile_edit'
 	
 	match 'sorry' => 'pages#show_slug', :slug => "permission-error", :as => 'permission_error'

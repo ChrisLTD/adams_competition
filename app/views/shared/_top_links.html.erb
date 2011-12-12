@@ -7,4 +7,10 @@
 		<% else %>
 			<%= link_to "Home", root_url, :class => "button" %>	
 		<% end %>
+		
+		<% #ADMIN LINKS %>
+		<% if current_user.try(:admin?) %>
+			<%= link_to "User List", user_list_path, :class => "button yellow" %>	
+		<% end %>
+		
 	</div>
