@@ -5,7 +5,7 @@ AdamsCompetition::Application.routes.draw do
 
   resources :pages
   
-  match 'page/:slug' => 'pages#show_slug'
+  match 'page/:slug' => 'pages#show_slug', :as => 'show_slug'
 
   devise_for :users
   
@@ -16,6 +16,8 @@ AdamsCompetition::Application.routes.draw do
 	match 'admin/users/' => 'admin#user_list', :as => 'user_list'
 	
 	match 'redirect' => 'profiles#redirect', :as => 'profile_edit'
+	
+	match 'rules' => 'pages#show_slug', :slug => "rules", :as => 'rules'
 	
 	match 'sorry' => 'pages#show_slug', :slug => "permission-error", :as => 'permission_error'
 	

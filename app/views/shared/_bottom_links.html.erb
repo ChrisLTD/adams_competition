@@ -1,7 +1,7 @@
 
 <div class="container">
 	<% if user_signed_in? %>
-		<%= link_to "Read Rules", "http://www.rubyonrails.org/", :class => "button"  %>
+		<%= link_to "Read Rules", rules_path, :class => "button"  %>
 		<% if !@is_edit_profile_page %>
 			<%= link_to 'Edit Profile', profile_edit_path, :class => "button"  %>
 		<% end %>
