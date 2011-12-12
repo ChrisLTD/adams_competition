@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 	# Redirect to users profile edit page
 	def redirect
 		@profile = Profile.find_by_user_id(current_user.id)
-		redirect_to :action => 'edit', :id => @profile.id
+		redirect_to :action => 'edit', :id => @profile.id, :controller => "/profiles"
   end
 
   # GET /profiles/1/edit
