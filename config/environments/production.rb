@@ -15,7 +15,7 @@ AdamsCompetition::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -44,9 +44,9 @@ AdamsCompetition::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-  config.assets.precompile += ['default.css']
-  config.assets.precompile += ['animate-custom.css']
-  config.assets.precompile += ['reset.css']
+#   config.assets.precompile += ['default.css']
+#   config.assets.precompile += ['animate-custom.css']
+#   config.assets.precompile += ['reset.css']
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
