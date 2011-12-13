@@ -8,14 +8,16 @@ AdamsCompetition::Application.routes.draw do
   match 'page/:slug' => 'pages#show_slug', :as => 'show_slug'
 
   devise_for :users
-  
-  namespace :user do
-    root :to => 'profiles#redirect'
-	end
 	
 	match 'admin/users/' => 'admin#user_list', :as => 'user_list'
 	
 	match 'redirect' => 'profiles#redirect', :as => 'profile_edit'
+	
+	match 'user' => 'profiles#redirect', :as => 'profile_edit'
+	
+	namespace :user do
+    root :to => 'profiles#redirect'
+	end
 	
 	match 'rules' => 'pages#show_slug', :slug => "rules", :as => 'rules'
 	
