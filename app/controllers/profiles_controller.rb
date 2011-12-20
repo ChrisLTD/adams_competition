@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
 		
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
+        flash[:notice] = 'Your profile was successfully updated'
         format.html { render action: 'edit', notice: 'Profile was successfully updated' }
         format.json { head :ok }
       else

@@ -116,3 +116,5 @@ h3 { font-family: LeagueGothicRegular, 'Helvetica Neue', Arial, Helvetica, sans-
 
 .yellow { background: #dda041; color: #000; text-shadow: rgba(255,255,255,.5) -1px -1px 1px; background-image: -moz-linear-gradient(top, #dda041, #e6ba75);
 background-image: -webkit-gradient(linear, center top, center bottom, from(#dda041), to(#e6ba75)); background-image: -o-linear-gradient(top, #dda041, #e6ba75); background-image: linear-gradient(top, #dda041, #e6ba75); }
+
+.box .sidebar { float: right;  border-left: 1px solid rgba(0,0,0,.3); width: 30%; padding: 20px 0 20px 20px; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 12px; }
