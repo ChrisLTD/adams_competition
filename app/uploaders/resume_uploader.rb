@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class LetterUploader < CarrierWave::Uploader::Base
+class ResumeUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -43,7 +43,7 @@ class LetterUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
       if original_filename 
-        "letter.#{file.extension}"
+        "resume.#{file.extension}"
       end
   end
 
