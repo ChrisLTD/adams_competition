@@ -67,6 +67,16 @@
     <% end %>    
     <%= f.file_field :resume %>
   </div>
+  <div class="field">
+    <%= f.label :paper, "Paper" %><br />
+    <% if @profile.paper? %>
+      <%= link_to "Current paper", @profile.paper.url, :target => "_blank" %><br>
+      <%= f.check_box :remove_paper %>
+      Remove current paper<br>
+      Upload a new paper:<br>
+    <% end %>    
+    <%= f.file_field :paper %>
+  </div>
   <div class="actions">
     <%= f.submit :class => "button" %>
   </div>

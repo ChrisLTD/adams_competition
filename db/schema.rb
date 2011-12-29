@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111212203425) do
+ActiveRecord::Schema.define(:version => 20111229204939) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20111212203425) do
     t.text     "state"
     t.text     "country"
     t.string   "zip"
+    t.string   "paper"
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
