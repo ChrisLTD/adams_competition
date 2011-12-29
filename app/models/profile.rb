@@ -1,4 +1,4 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
-  mount_uploader :letter, DocumentUploader
+  mount_uploader :letter, LetterUploader
 end
