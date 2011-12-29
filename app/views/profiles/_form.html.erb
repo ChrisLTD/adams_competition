@@ -47,6 +47,16 @@
     <%= f.label :country, "Country" %><br />
     <%= f.text_field :country %>
   </div>
+  <div class="field">
+    <%= f.label :letter, "Letter of Intent" %><br />
+    <% if @profile.letter? %>
+      <%= link_to "Current letter of intent", @profile.letter.url, :target => "_blank" %><br>
+      <%= f.check_box :remove_letter %>
+      Remove current letter<br>
+      Upload a new letter:<br>
+    <% end %>    
+    <%= f.file_field :letter %>
+  </div>
   <div class="actions">
     <%= f.submit :class => "button" %>
   </div>
