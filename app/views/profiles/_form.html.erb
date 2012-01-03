@@ -51,8 +51,6 @@
     <%= f.label :letter, "Letter of Intent" %><br />
     <% if @profile.letter? %>
       <%= link_to "Current letter of intent", @profile.letter.url, :target => "_blank" %><br>
-      <%= f.check_box :remove_letter %>
-      Remove current letter<br>
       Upload a new letter:<br>
     <% end %>    
     <%= f.file_field :letter %>
@@ -61,8 +59,6 @@
     <%= f.label :resume, "Curriculum vitae" %><br />
     <% if @profile.resume? %>
       <%= link_to "Current curriculum vitae", @profile.resume.url, :target => "_blank" %><br>
-      <%= f.check_box :remove_resume %>
-      Remove current curriculum vitae<br>
       Upload a new curriculum vitae:<br>
     <% end %>    
     <%= f.file_field :resume %>
@@ -71,8 +67,6 @@
     <%= f.label :paper, "Paper" %><br />
     <% if @profile.paper? %>
       <%= link_to "Current paper", @profile.paper.url, :target => "_blank" %><br>
-      <%= f.check_box :remove_paper %>
-      Remove current paper<br>
       Upload a new paper:<br>
     <% end %>    
     <%= f.file_field :paper %>
