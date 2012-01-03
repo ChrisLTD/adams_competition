@@ -49,27 +49,45 @@
   </div>
   <div class="field">
     <%= f.label :letter, "Letter of Intent" %><br />
-    <% if @profile.letter? %>
-      <%= link_to "Current letter of intent", @profile.letter.url, :target => "_blank" %><br>
-      Upload a new letter:<br>
-    <% end %>    
-    <%= f.file_field :letter %>
+    <div class="upload">
+      <% if @profile.letter? %>
+        <%= link_to "View current letter of intent", @profile.letter.url, :target => "_blank", :class=> "current" %><br>
+        <div class="edit">
+          Upload a new letter: 
+          <%= f.file_field :letter %>
+        </div>
+      <% else %>    
+        <%= f.file_field :letter %>
+      <% end %>    
+    </div>
   </div>
   <div class="field">
     <%= f.label :resume, "Curriculum vitae" %><br />
-    <% if @profile.resume? %>
-      <%= link_to "Current curriculum vitae", @profile.resume.url, :target => "_blank" %><br>
-      Upload a new curriculum vitae:<br>
-    <% end %>    
-    <%= f.file_field :resume %>
+    <div class="upload">
+      <% if @profile.resume? %>
+        <%= link_to "View current curriculum vitae", @profile.resume.url, :target => "_blank", :class=> "current" %><br>
+        <div class="edit">
+          Upload a new curriculum vitae: 
+          <%= f.file_field :resume %>
+        </div>
+      <% else %>    
+        <%= f.file_field :resume %>
+      <% end %>
+    </div>
   </div>
   <div class="field">
     <%= f.label :paper, "Paper" %><br />
-    <% if @profile.paper? %>
-      <%= link_to "Current paper", @profile.paper.url, :target => "_blank" %><br>
-      Upload a new paper:<br>
-    <% end %>    
-    <%= f.file_field :paper %>
+    <div class="upload">
+      <% if @profile.paper? %>
+        <%= link_to "View current paper", @profile.paper.url, :target => "_blank", :class=> "current" %><br>
+        <div class="edit">
+          Upload a new paper: 
+          <%= f.file_field :paper %>
+        </div>
+      <% else %>    
+        <%= f.file_field :paper %>
+      <% end %>    
+    </div>
   </div>
   <div class="actions">
     <%= f.submit :class => "button" %>
