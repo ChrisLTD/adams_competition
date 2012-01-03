@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
 	# Redirect to users profile edit page
-	def redirect
+  def redirect
 		@profile = Profile.find_by_user_id(current_user.id)
 		redirect_to :action => 'edit', :id => @profile.id, :controller => "/profiles"
   end
@@ -37,6 +37,21 @@ class ProfilesController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /profiles/1
+  # GET /profiles/1.json
+  def show
+    if current_user.try(:admin?)
+      @profile = Profile.find(params[:id])
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @profile }
+      end
+    else
+      redirect_to :permission_error
     end
   end
 

@@ -14,5 +14,7 @@ class User < ActiveRecord::Base
   def create_profile
   	Profile.create(:user_id => self.id)
   end
+
+  has_one :profile
   
 end

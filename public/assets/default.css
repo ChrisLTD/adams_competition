@@ -133,3 +133,12 @@ label { font-size: 16px; }
 .current { display: inline-block; width: 180px; }
 
 .edit_btn { margin-left: .5em; }
+
+/* Tables
+================= */
+
+.box table td { padding: 7px 20px; }
+
+.box table .header { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;  }
+
+.box table tr:nth-child(even) td { background: rgba(255,255,255,.7); }

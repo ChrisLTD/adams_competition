@@ -1,6 +1,28 @@
-<h1>User List</h1>
+<h1>Users</h1>
+  
+  <button id="show_IDs">Toggle User IDs</button>
+
+
+<table class="admin_table">
+
+  <tr class="header">
+    <td style="display: none;" class="id">ID</td>
+    <td>Email</td>
+    <td>Name</td>
+    <td>Created</td>
+    <td>Profile</td>
+  </tr>
+
 <% @users.each do |user| %>
 
-	<p><b><%= user.email %></b> | created: <%= user.created_at %></p>
+  <tr>
+    <td style="display: none;" class="id"><%= user.id %></td>
+    <td><%= link_to user.email, "mailto:" + user.email  %></td>
+    <td><%= user.profile.name %></td>
+    <td><%= l user.created_at, :format => "%Y-%m-%d" %></td>
+    <td><%= link_to "View", :controller => "profiles", :action => "show", :id => user.profile.id  %></td>
+  </tr>
 
 <% end %>
+
+</table>

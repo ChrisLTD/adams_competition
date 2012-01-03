@@ -1,5 +1,5 @@
 AdamsCompetition::Application.routes.draw do
-  resources :profiles, :except => [:index, :destroy, :show, :new]
+  resources :profiles, :except => [:index, :destroy, :new]
 
   resources :settings
 
@@ -10,6 +10,8 @@ AdamsCompetition::Application.routes.draw do
   devise_for :users
 	
 	match 'admin/users/' => 'admin#user_list', :as => 'user_list'
+
+      match 'admin/files/' => 'admin#file_list', :as => 'file_list'
 	
 	match 'redirect' => 'profiles#redirect', :as => 'profile_edit'
 	

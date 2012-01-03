@@ -1,0 +1,23 @@
+<h1>User Files</h1>
+
+<table class="admin_table">
+
+  <tr class="header">
+    <td>ID</td>
+    <td>Letter of Intent</td>
+    <td>CV</td>
+    <td>Paper</td>
+  </tr>
+
+<% @users.each do |user| %>
+
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= link_to "Download", user.profile.letter.url, :target => "_blank" %></td>
+    <td><%= link_to "Download", user.profile.resume.url, :target => "_blank" %></td>
+    <td><%= link_to "Download", user.profile.paper.url, :target => "_blank" %></td>
+  </tr>
+
+<% end %>
+
+</table>

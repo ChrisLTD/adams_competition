@@ -1,0 +1,46 @@
+<h1>Profile for <%= @profile.name %></h1>
+
+<table>
+  <tr>
+    <td>Institutional Affiliation</td>
+    <td><%= @profile.institution %></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><%= @profile.phone %></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><%= @profile.address1 %><br><%= @profile.address2 %></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><%= @profile.city %></td>
+  </tr>
+  <tr>
+    <td>State/Province/Region</td>
+    <td><%= @profile.state %></td>
+  </tr>
+  <tr>
+    <td>ZIP</td>
+    <td><%= @profile. zip%></td>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td><%= @profile. country%></td>
+  </tr>
+  
+  <tr>
+    <td>Letter of Intent</td>
+    <td><% if @profile.letter? %><%= link_to "Download", @profile.letter.url, :target => "_blank" %><% end %></td>
+  </tr>
+
+  <tr>
+    <td>Curriculum vitae</td>
+    <td><% if @profile.resume? %><%= link_to "Download", @profile.resume.url, :target => "_blank" %><% end %></td>
+  </tr>
+  <tr>
+    <td>Paper</td>
+    <td><% if @profile.paper? %><%= link_to "View current paper", @profile.paper.url, :target => "_blank", :class=> "current" %><% end %></td>
+  </tr>
+</table>
