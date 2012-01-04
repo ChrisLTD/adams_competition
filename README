@@ -1,0 +1,4 @@
+# Adams Competition Site
+
+## Notes
+This app is designed to run on Heroku with file storage on Amazon S3. Configure the app to connect to your S3 account by adding the proper [Heroku config variables](http://devcenter.heroku.com/articles/config-vars) to accessed by config/initializers/carrierwave.rb.

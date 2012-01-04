@@ -9,4 +9,4 @@ doc/
 *~
 .project
 .DS_Store
-config/initializers/carrierwave.rb
+*localonly*
