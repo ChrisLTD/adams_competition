@@ -63,5 +63,5 @@ AdamsCompetition::Application.configure do
   
   config.assets.initialize_on_precompile = false
   
-  config.action_mailer.default_url_options = { :host => 'smooth-warrior-7866.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'adamscompetition.org' }
 end
