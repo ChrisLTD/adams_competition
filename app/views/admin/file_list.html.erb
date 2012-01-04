@@ -13,9 +13,9 @@
 
   <tr>
     <td><%= user.id %></td>
-    <td><%= link_to "Download", user.profile.letter.url, :target => "_blank" %></td>
-    <td><%= link_to "Download", user.profile.resume.url, :target => "_blank" %></td>
-    <td><%= link_to "Download", user.profile.paper.url, :target => "_blank" %></td>
+    <td><% if user.profile.letter? %><%= link_to "Download", user.profile.letter.url, :target => "_blank" %><% end %></td>
+    <td><% if user.profile.resume? %><%= link_to "Download", user.profile.resume.url, :target => "_blank" %><% end %></td>
+    <td><% if user.profile.paper? %><%= link_to "Download", user.profile.paper.url, :target => "_blank" %><% end %></td>
   </tr>
 
 <% end %>

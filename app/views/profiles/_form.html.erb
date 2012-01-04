@@ -47,6 +47,11 @@
     <%= f.label :country, "Country" %><br />
     <%= f.text_field :country %>
   </div>
+
+<div class="sidebar">
+  After selecting a document to upload, click "Update Profile" to submit it. You'll have the option to replace the file up until the deadlines.
+</div>
+
   <div class="field">
     <%= f.label :letter, "Letter of Intent" %><br />
     <div class="upload">
@@ -62,7 +67,7 @@
     </div>
   </div>
   <div class="field">
-    <%= f.label :resume, "Curriculum vitae" %><br />
+    <%= f.label :resume, "Curriculum Vitae" %><br />
     <div class="upload">
       <% if @profile.resume? %>
         <%= link_to "View current curriculum vitae", @profile.resume.url, :target => "_blank", :class=> "current" %><br>
@@ -90,6 +95,6 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit :class => "button" %>
+    <%= f.submit :class => "button yellow" %>
   </div>
 <% end %>

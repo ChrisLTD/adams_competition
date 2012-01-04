@@ -10,7 +10,7 @@ class AdminController < ApplicationController
 
   def file_list
     if current_user.try(:admin?)
-      @users = User.includes(:profile).order("created_at DESC").all
+      @users = User.includes(:profile).all
     else
       redirect_to :permission_error
     end
