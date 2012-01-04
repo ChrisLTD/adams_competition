@@ -1,6 +1,10 @@
-<h1>Profile for <%= @profile.name %></h1>
+<h1>Profile for <%= link_to @profile.user.email, "mailto:" + @profile.user.email %></h1>
 
 <table>
+  <tr>
+    <td>Name</td>
+    <td><%= @profile.name %></td>
+  </tr>
   <tr>
     <td>Institutional Affiliation</td>
     <td><%= @profile.institution %></td>
