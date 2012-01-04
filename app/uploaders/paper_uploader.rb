@@ -43,8 +43,9 @@ class PaperUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
       if original_filename 
-        randomNum = Random.new.rand(1000..9999) 
-        "#{model.id}-paper-#{randomNum}.#{file.extension}"
+        hash = Digest::SHA1.hexdigest("#{model.id} SALLLLT")
+        hash = hash.slice(1,6)
+        "#{model.id}-paper-#{hash}.#{file.extension}"
       end
   end
 
