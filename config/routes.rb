@@ -11,7 +11,7 @@ AdamsCompetition::Application.routes.draw do
 	
 	match 'admin/users/' => 'admin#user_list', :as => 'user_list'
 
-      match 'admin/files/' => 'admin#file_list', :as => 'file_list'
+	match 'admin/files/' => 'admin#file_list', :as => 'file_list'
 	
 	match 'redirect' => 'profiles#redirect', :as => 'profile_edit'
 	
@@ -20,6 +20,8 @@ AdamsCompetition::Application.routes.draw do
 	namespace :user do
     root :to => 'profiles#redirect'
 	end
+	
+	resources :users, :only => [:destroy]
 	
 	match 'rules' => 'pages#show_slug', :slug => "rules", :as => 'rules'
 	
