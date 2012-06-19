@@ -7,6 +7,7 @@
 		<% else %>
 			<%= link_to "Home", root_url, :class => "button" %>	
 		<% end %>
+			<%= link_to "Forum", "https://groups.google.com/group/em-adams-competition", :class => "button" %>	
 		
 		<% #ADMIN LINKS %>
 		<% if current_user.try(:admin?) %>
