@@ -9,8 +9,8 @@
     <td style="display: none;" class="id">ID</td>
     <td>Email</td>
     <td>Name</td>
-    <td>Created</td>
     <td>Profile</td>
+    <td></td>
     <td></td>
   </tr>
 
@@ -20,9 +20,14 @@
     <td style="display: none;" class="id"><%= user.id %></td>
     <td><%= link_to user.email, "mailto:" + user.email  %></td>
     <td><%= user.profile.name %></td>
-    <td><%= l user.created_at, :format => "%Y-%m-%d" %></td>
     <td><%= link_to "View", :controller => "profiles", :action => "show", :id => user.profile.id  %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if !user.admin %>
+    	<td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    	<td><%= link_to 'Make Admin', :controller => "users", :action => "toggle_admin", :id => user.profile.id, :confirm => 'Are you sure?' %></td>
+    <% else %>
+    	<td></td>
+    	<td><%= link_to 'Revoke Admin', :controller => "users", :action => "toggle_admin", :id => user.profile.id, :confirm => 'Are you sure?' %></td>
+    <% end %>
   </tr>
 
 <% end %>

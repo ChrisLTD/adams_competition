@@ -23,6 +23,8 @@ AdamsCompetition::Application.routes.draw do
 	
 	resources :users, :only => [:destroy]
 	
+	match 'users/:id/toggle_admin' => 'users#toggle_admin', :as => :toggle_admin
+	
 	match 'rules' => 'pages#show_slug', :slug => "rules", :as => 'rules'
 	
 	match 'sorry' => 'pages#show_slug', :slug => "permission-error", :as => 'permission_error'
